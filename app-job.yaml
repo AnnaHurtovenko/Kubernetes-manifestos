@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: short-task-job
+spec:
+  template:
+    metadata:
+      name: short-task-pod
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: short-task-container
+        image: <image>
+        command: ["<command>"]
+        args: ["<arguments>"]
+      imagePullSecrets:
+      - name: <image-pull-secret-name>
